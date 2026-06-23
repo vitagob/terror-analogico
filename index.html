@@ -6,16 +6,18 @@
     <title>SISTEMA RECOLECTOR DE SEÑAL - ERROR 404</title>
     <style>
         /* Estilo Base Estilo Terminal CRT */
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #05070a;
-            color: #39ff14; /* Verde neón clásico */
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            overflow-x: hidden;
-        }
+       body {
+    font-family: 'Courier New', Courier, monospace;
+    /* Aquí añadimos el fondo con una capa oscura encima para que el texto verde resalte */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fondoarboles.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #39ff14;
+    margin: 0;
+    padding: 0;
+}
 
         /* CAPA DE DECORACIÓN 1: Efecto CRT y Scanlines */
         body::before {
