@@ -508,15 +508,14 @@
     </main>
 
     <!-- VENTANA EMERGENTE -->
-    <div class="modal-overlay" id="infoModal">
-        <div class="modal-content">
-            <h3 class="modal-title" id="modalTitle">[NOMBRE DEL TERROR]</h3>
-            <img class="modal-img" id="modalImg" src="" alt="Vista Detallada">
-            <p class="modal-text" id="modalText">Información detallada...</p>
-            <button class="modal-close" id="closeModal">[ CERRAR REPORTE ]</button>
-        </div>
+  <div class="modal-overlay" id="infoModal">
+    <div class="modal-content">
+        <h3 id="modalTitle"></h3>
+        <img id="modalImg" src="">
+        <p id="modalText"></p>
+        <button id="closeModal">CERRAR</button>
     </div>
-
+</div>
     <footer>
         <p>SISTEMA OPERATIVO: Cultura Digital II | Bloque de Evaluación: Tercer Parcial</p>
         <p>Plantel 32 Coatzintla &copy; 2026-A — Conexión finalizada de forma segura.</p>
@@ -526,7 +525,8 @@
     </footer>
 
     <!-- LÓGICA JAVASCRIPT -->
-    <script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
         const cards = document.querySelectorAll('.card');
         const modal = document.getElementById('infoModal');
         const modalTitle = document.getElementById('modalTitle');
@@ -537,13 +537,14 @@
         cards.forEach(card => {
             card.addEventListener('click', () => {
                 const title = card.querySelector('h4').innerText;
-                const imgSrc = card.querySelector('.card-img').src;
+                const imgEl = card.querySelector('.card-img');
+                const imgSrc = imgEl ? imgEl.src : "";
                 const detailedInfo = card.getAttribute('data-info');
 
                 modalTitle.innerText = `// REPORTE DE ARCHIVO: ${title.toUpperCase()}`;
                 modalImg.src = imgSrc;
                 modalText.innerText = detailedInfo || "No hay registros adicionales en la base de datos de esta señal.";
-                
+
                 modal.classList.add('active');
             });
         });
@@ -557,6 +558,8 @@
                 modal.classList.remove('active');
             }
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
